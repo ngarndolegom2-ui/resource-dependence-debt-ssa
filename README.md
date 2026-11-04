@@ -52,6 +52,15 @@ Variable names are in French, as in the thesis.
 
 In the original do-file (`original_thesis_dofile.do`), the command `keep if Time==2014`, used to draw a figure, was executed before the Oster test. Table 10 of the thesis was therefore computed on the 2014 cross-section only (38 observations), which explains its negative and imprecise coefficient (−0.048, standard error 0.112). The table also mentions country and year fixed effects, which the regression does not include. `08_oster_test.do` runs the test on the full panel, the same sample as Table 5.
 
+On the full panel (n = 1,110), adding the controls barely moves the coefficient of resource rents (from 0.062 to 0.059), while the R-squared rises from 0.014 to 0.056. Using Oster's approximation:
+
+| R<sub>max</sub> | δ needed for β = 0 | β* (δ = 1) |
+|---|---|---|
+| 1.3 × R̃ = 0.073 (Oster's recommended bound) | 48.6 | 0.058 |
+| 1 (most conservative bound) | 0.87 | −0.009 |
+
+Under Oster's recommended bound, the result is robust to selection on unobservables. Under the most conservative assumption (unobservables could explain all remaining variance), it is not. These values come from the approximate formula of Oster (2019, eq. 3), computed in Python; `psacalc` uses the exact formula and may give slightly different numbers.
+
 ## Limitations and next steps
 
 - **Debt measure.** The thesis discusses public debt, but the series used (external debt stocks, % of GNI) covers both public and private external debt.
